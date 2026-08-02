@@ -1,26 +1,149 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "daisyui/theme" {
+  name: "pokota";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #E8DFC8;
+  --color-base-200: #D9CDAE;
+  --color-base-300: #C4B78F;
+  --color-base-content: #2B2318;
+  --color-primary: #C4501F;
+  --color-primary-content: #FFF3E8;
+  --color-secondary: #7A5C2E;
+  --color-secondary-content: #FFF6E0;
+  --color-accent: #4B7A3D;
+  --color-accent-content: #EAFCE0;
+  --color-neutral: #3B2F22;
+  --color-neutral-content: #EFE6D3;
+  --color-info: #3A6EA5;
+  --color-info-content: #FFFFFF;
+  --color-success: #3F7D3F;
+  --color-success-content: #FFFFFF;
+  --color-warning: #B8801F;
+  --color-warning-content: #FFFFFF;
+  --color-error: #A8342A;
+  --color-error-content: #FFFFFF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+}
+
+a,
+button,
+input,
+textarea {
+  border-radius: 0;
+}
+
+.bezel {
+  clip-path: polygon(
+    12px 0,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%,
+    0 12px
+  );
+}
+
+.bezel-sm {
+  clip-path: polygon(
+    6px 0,
+    100% 0,
+    100% calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    0 100%,
+    0 6px
+  );
+}
+
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(18, 25, 42, 0.9) 0,
+    rgba(18, 25, 42, 0.9) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.status-dot,
+.cursor-block {
+  animation: terminal-blink 1s steps(2, start) infinite;
+}
+
+.terminal-screen {
+  color: var(--color-neutral-content);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(143, 179, 0, 0.14) 0,
+      rgba(143, 179, 0, 0.14) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    var(--color-neutral);
+  border: 2px solid var(--color-primary);
+  clip-path: polygon(
+    12px 0,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%,
+    0 12px
+  );
+}
+
+.bracket-chip {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  overflow-wrap: anywhere;
+}
+
+.timeline-rail {
+  position: relative;
+  border-left: 3px solid var(--color-primary);
+}
+
+.list-square {
+  list-style-type: square;
+}
+
+@keyframes terminal-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0.25;
+  }
 }
