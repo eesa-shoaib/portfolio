@@ -1,4 +1,5 @@
-import { ExternalLink, Mail, MapPin, Phone, Send } from "lucide-react";
+// src/app/contact/page.tsx
+import { ExternalLink, Mail, MapPin, Send } from "lucide-react";
 import { BezelPanel } from "../components/BezelPanel";
 import { BracketChip } from "../components/BracketChip";
 
@@ -9,8 +10,8 @@ const contacts = [
   {
     icon: ExternalLink,
     label: "LinkedIn",
-    value: "linkedin.com/in/eesa-shoaib-6705582a0",
-    href: "https://linkedin.com/in/eesa-shoaib-6705582a0",
+    value: "linkedin.com/in/eesa-shoaib",
+    href: "https://linkedin.com/in/eesa-shoaib",
   },
 ];
 
@@ -47,13 +48,7 @@ export default function ContactPage() {
               const external = href.startsWith("http");
 
               return (
-                <a
-                  key={label}
-                  href={href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noreferrer" : undefined}
-                  className="block transition-colors hover:text-accent"
-                >
+                <a key={label} href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} className="block transition-colors hover:text-accent">
                   {row}
                 </a>
               );
@@ -61,42 +56,54 @@ export default function ContactPage() {
           </div>
         </BezelPanel>
 
-        <BezelPanel as="form" className="bg-base-200 p-5 border-neutral/25 md:p-7">
-          <div className="grid gap-4">
-            <label className="form-control">
-              <span className="mb-1.5 block font-mono text-xs font-semibold uppercase tracking-wide text-base-content/70">
-                Name
-              </span>
-              <input
-                type="text"
-                name="name"
-                className="input input-bordered bezel-sm border border-neutral/30 bg-base-100"
-              />
-            </label>
-            <label className="form-control">
-              <span className="mb-1.5 block font-mono text-xs font-semibold uppercase tracking-wide text-base-content/70">
-                Email
-              </span>
-              <input
-                type="email"
-                name="email"
-                className="input input-bordered bezel-sm border border-neutral/30 bg-base-100"
-              />
-            </label>
-            <label className="form-control">
-              <span className="mb-1.5 block font-mono text-xs font-semibold uppercase tracking-wide text-base-content/70">
-                Message
-              </span>
-              <textarea
-                name="message"
-                className="textarea textarea-bordered bezel-sm min-h-32 border border-neutral/30 bg-base-100"
-              />
-            </label>
-            <button type="submit" className="btn btn-primary bezel-sm border-0 font-mono text-sm uppercase tracking-wide">
-              <Send className="h-4 w-4" aria-hidden="true" />
-              Send message
-            </button>
+        {/* Compose panel */}
+        <BezelPanel className="overflow-hidden border-neutral/25 bg-base-200 p-0">
+          <div className="flex items-center justify-between border-b border-neutral/25 bg-base-300 px-4 py-2.5">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-error/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-warning/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-accent/70" />
+            </div>
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-base-content/50">
+              compose.msg
+            </p>
           </div>
+
+          <form className="p-5 md:p-7">
+            <div className="grid gap-4">
+              <label className="form-control">
+                <span className="mb-1.5 flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-base-content/70">
+                  <span className="text-accent">&gt;</span> Name
+                </span>
+                <input type="text" name="name" placeholder="jane doe" className="input input-bordered bezel-sm border border-neutral/30 bg-base-100 font-mono placeholder:text-base-content/30 focus:border-accent focus:outline-none" />
+              </label>
+
+              <label className="form-control">
+                <span className="mb-1.5 flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-base-content/70">
+                  <span className="text-accent">&gt;</span> Email
+                </span>
+                <input type="email" name="email" placeholder="jane@example.com" className="input input-bordered bezel-sm border border-neutral/30 bg-base-100 font-mono placeholder:text-base-content/30 focus:border-accent focus:outline-none" />
+              </label>
+
+              <label className="form-control">
+                <span className="mb-1.5 flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wide text-base-content/70">
+                  <span className="text-accent">&gt;</span> Message
+                </span>
+                <textarea name="message" placeholder="type your message..." className="textarea textarea-bordered bezel-sm min-h-32 border border-neutral/30 bg-base-100 font-mono placeholder:text-base-content/30 focus:border-accent focus:outline-none" />
+              </label>
+            </div>
+
+            <div className="mt-5 flex flex-col gap-3 border-t border-neutral/25 pt-5 sm:flex-row sm:items-center sm:justify-between">
+              <p className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-base-content/40">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Ready to transmit
+              </p>
+              <button type="submit" className="btn btn-primary bezel-sm w-full border-0 font-mono text-sm uppercase tracking-wide sm:w-auto">
+                <Send className="h-4 w-4" aria-hidden="true" />
+                Send message
+              </button>
+            </div>
+          </form>
         </BezelPanel>
       </div>
     </main>
