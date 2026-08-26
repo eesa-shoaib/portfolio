@@ -1,4 +1,10 @@
 @import "tailwindcss";
+
+@theme inline {
+  --font-mono: var(--font-martian), ui-monospace, monospace;
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+}
+
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {

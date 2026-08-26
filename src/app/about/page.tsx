@@ -1,10 +1,10 @@
 import { BezelPanel } from "../components/BezelPanel";
 import { BracketChip } from "../components/BracketChip";
 import { TechnicalSkills } from "../components/TechnicalSkills";
-import { timelineEntries, summary } from "../lib/content";
+import { education, summary } from "../lib/content";
 
 export default function AboutPage() {
-  const education = timelineEntries.find((entry) => entry.title === "BS Computer Science");
+  const edu = education[0];
 
   return (
     <main className="mx-auto max-w-6xl px-5 pb-16 pt-8">
@@ -18,17 +18,17 @@ export default function AboutPage() {
             Eesa Shoaib
           </h2>
           <p className="mt-5 text-lg leading-8 text-base-content">{summary}</p>
-          {education && (
+          {edu && (
             <div className="mt-8 border-t-2 border-neutral/30 pt-5">
               <BracketChip>Education</BracketChip>
               <h3 className="mt-3 font-mono text-xl font-bold uppercase text-base-content">
-                {education.eyebrow}
+                {edu.eyebrow}
               </h3>
               <p className="mt-2 font-mono text-sm font-semibold uppercase tracking-wide text-base-content/75">
-                {education.title}
+                {edu.title}
               </p>
               <p className="mt-2 font-mono text-sm font-semibold uppercase tracking-wide text-base-content/75">
-                {education.date}
+                {edu.date}
               </p>
             </div>
           )}

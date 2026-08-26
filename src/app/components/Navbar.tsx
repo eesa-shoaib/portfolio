@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 
 const links = [
   { label: "Home", href: "/" },
@@ -70,6 +70,14 @@ export default function Navbar() {
                   </Link>
                 );
               })}
+              <a
+                href="/cv.pdf"
+                download
+                className="ml-2 flex items-center gap-1.5 border-2 border-neutral px-3 py-2 font-mono text-lg font-bold uppercase text-base-content transition-colors duration-150 hover:border-accent hover:text-accent lg:text-xl"
+              >
+                <Download className="h-4 w-4" aria-hidden="true" />
+                CV
+              </a>
             </div>
           </nav>
         </div>
@@ -93,6 +101,16 @@ export default function Navbar() {
                   </li>
                 );
               })}
+              <li>
+                <a
+                  href="/cv.pdf"
+                  download
+                  className="flex items-center gap-2 px-3 py-3 font-mono text-base font-bold uppercase text-base-content transition-colors hover:text-accent"
+                >
+                  <Download className="h-4 w-4" aria-hidden="true" />
+                  Download CV
+                </a>
+              </li>
             </ul>
           </div>
         )}

@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { BezelPanel } from "./components/BezelPanel";
 import { BracketChip } from "./components/BracketChip";
-import { Tag } from "./components/Tag";
-import { TechnicalSkills } from "./components/TechnicalSkills";
 import { summary } from "./lib/content";
 
 export default function Home() {
@@ -43,9 +41,6 @@ export default function Home() {
         </BezelPanel>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 pb-16">
-        <TechnicalSkills />
-      </section>
     </main>
   );
 }

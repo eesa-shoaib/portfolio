@@ -1,7 +1,7 @@
 // src/app/experience/page.tsx
 import { BracketChip } from "../components/BracketChip";
 import { TimelineEntry } from "../components/TimelineEntry";
-import { timelineEntries } from "../lib/content";
+import { workExperience, education } from "../lib/content";
 
 export default function ExperiencePage() {
   return (
@@ -11,15 +11,39 @@ export default function ExperiencePage() {
         Experience
       </h1>
 
-      <ol className="relative mt-12 space-y-10 border-l-2 border-neutral/25 pl-9">
-        {timelineEntries.map((entry, index) => (
-          <TimelineEntry
-            key={`${entry.eyebrow}-${entry.title}`}
-            index={index + 1}
-            {...entry}
-          />
-        ))}
-      </ol>
+      <div className="mt-12 grid gap-10 md:grid-cols-2">
+        {/* Work Experience */}
+        <div>
+          <h2 className="font-mono text-xl font-bold uppercase text-accent">
+            Work Experience
+          </h2>
+          <ol className="relative mt-6 space-y-10 border-l-2 border-neutral/25 pl-9">
+            {workExperience.map((entry, index) => (
+              <TimelineEntry
+                key={`${entry.eyebrow}-${entry.title}`}
+                index={index + 1}
+                {...entry}
+              />
+            ))}
+          </ol>
+        </div>
+
+        {/* Education */}
+        <div>
+          <h2 className="font-mono text-xl font-bold uppercase text-accent">
+            Education
+          </h2>
+          <ol className="relative mt-6 space-y-10 border-l-2 border-neutral/25 pl-9">
+            {education.map((entry, index) => (
+              <TimelineEntry
+                key={`${entry.eyebrow}-${entry.title}`}
+                index={index + 1}
+                {...entry}
+              />
+            ))}
+          </ol>
+        </div>
+      </div>
     </main>
   );
 }
