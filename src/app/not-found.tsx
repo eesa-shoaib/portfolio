@@ -19,19 +19,22 @@ export default function NotFound() {
     <main className="mx-auto flex min-h-[calc(100svh-96px)] max-w-6xl flex-col items-center justify-center px-5 pb-16 pt-8 text-center">
       <BracketChip>404</BracketChip>
 
-      <div className="terminal-screen mt-6 w-full max-w-lg p-6 text-left md:p-8">
+      <div className="bezel scanline border-2 border-primary bg-base-300 mt-6 w-full max-w-lg p-6 text-left md:p-8">
         <p className="font-mono text-xs font-bold uppercase tracking-widest text-accent">
           error.log
         </p>
-        <div className="mt-6 space-y-3 font-mono text-base font-semibold uppercase text-neutral-content">
+        <div className="mt-6 space-y-3 font-mono text-base font-semibold uppercase text-base-content">
           <p>
-            <span className="text-error">status:</span> 404
+            <span className="text-primary">status:</span>{" "}
+            <span>404</span>
           </p>
           <p>
-            <span className="text-error">message:</span> page not found
+            <span className="text-primary">message:</span>{" "}
+            <span>page not found</span>
           </p>
           <p>
-            <span className="text-error">path:</span> {pathname}
+            <span className="text-primary">path:</span>{" "}
+            <span>{pathname}</span>
           </p>
         </div>
         <div className="mt-8 border-t border-neutral-content/15 pt-5">
@@ -55,7 +58,7 @@ export default function NotFound() {
             <Link
               key={s.href}
               href={s.href}
-              className="bezel-sm border border-neutral/30 px-4 py-2 font-mono text-xs font-bold uppercase text-base-content/60 transition-colors hover:border-accent hover:text-accent"
+              className="bezel-sm border border-neutral/30 px-4 py-2 font-mono text-xs font-bold uppercase text-base-content/70 transition-colors hover:border-accent hover:bg-accent/10 hover:text-accent"
             >
               {s.label}
             </Link>
