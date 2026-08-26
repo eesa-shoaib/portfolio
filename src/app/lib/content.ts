@@ -98,7 +98,7 @@ export const projects = [
     ],
   },
   {
-    name: "Penance (Platformer Game)",
+    name: "Penance",
     tech: ["C++17", "CMake", "Raylib"],
     github: "https://github.com/eesa-shoaib/penance",
     bullets: [
