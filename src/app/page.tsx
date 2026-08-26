@@ -31,11 +31,23 @@ export default function Home() {
             <p className="font-mono text-xs font-bold uppercase tracking-widest text-accent">
               boot.profile
             </p>
-            <div className="mt-8 space-y-4 font-mono text-base font-semibold uppercase text-neutral-content">
-              <p>name: Eesa Shoaib</p>
-              <p>role: Computer Science student</p>
-              <p>core: Go / Flutter / NestJs / Node.js</p>
-              <p>data: PostgreSQL / SQL Server / Supabase</p>
+            <div className="mt-8 space-y-4 font-mono text-base font-semibold uppercase">
+              <div className="flex gap-4">
+                <span className="shrink-0 text-neutral-content/50">name:</span>
+                <span className="text-neutral-content">Eesa Shoaib</span>
+              </div>
+              <div className="flex gap-4">
+                <span className="shrink-0 text-neutral-content/50">role:</span>
+                <span className="text-neutral-content">Computer Science student</span>
+              </div>
+              <div className="flex gap-4">
+                <span className="shrink-0 text-neutral-content/50">core:</span>
+                <span className="text-neutral-content">Go / Flutter / NestJS / Node.js</span>
+              </div>
+              <div className="flex gap-4">
+                <span className="shrink-0 text-neutral-content/50">data:</span>
+                <span className="text-neutral-content">PostgreSQL / MySQL / T-SQL / Supabase</span>
+              </div>
             </div>
           </div>
         </BezelPanel>
